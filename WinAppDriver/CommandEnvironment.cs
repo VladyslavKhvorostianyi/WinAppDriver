@@ -65,6 +65,7 @@ namespace WinAppDriver.Server
         private int implicitWaitTimeout = 60000;
         private int asyncScriptTimeout = -1;
         private int pageLoadTimeout = -1;
+        private int setTextDelay = 100;
         private bool isBlocked;
         private string alertText = string.Empty;
         private string alertType = string.Empty;
@@ -157,6 +158,15 @@ namespace WinAppDriver.Server
         public string AlertType
         {
             get { return this.alertType; }
+        }
+
+        /// <summary>
+        /// Gets or sets the delay between sanding keys
+        /// </summary>
+        public int SetTextDelay
+        {
+            get { return this.setTextDelay; }
+            set { this.setTextDelay = value; }
         }
 
         public System.Collections.Concurrent.ConcurrentDictionary<IntPtr, ElementCache> _elementCache

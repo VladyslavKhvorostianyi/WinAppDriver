@@ -41,7 +41,7 @@ namespace WinAppDriver.Server.CommandHandlers
     {
         protected override Response GetResponse(AutomationElement automationElement, CommandEnvironment environment, Dictionary<string, object> parameters)
         {
-            automationElement.SetText("");
+            automationElement.SetText("", environment.SetTextDelay);
             return Response.CreateSuccessResponse();
         }
     }

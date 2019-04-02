@@ -29,7 +29,7 @@ namespace WinAppDriver.Extensions
             }
         }
 
-        public static void SetText(this AutomationElement element, string value)
+        public static void SetText(this AutomationElement element, string value, int delay)
         {
             // https://docs.microsoft.com/en-us/dotnet/framework/ui-automation/add-content-to-a-text-box-using-ui-automation
             if (value == null)
@@ -80,7 +80,7 @@ namespace WinAppDriver.Extensions
                 element.SetFocus();
 
                 // Pause before sending keyboard input.
-                Thread.Sleep(100);
+                Thread.Sleep(delay);
 
                 // Delete existing content in the control and insert new content.
                 SendKeys.SendWait("^{HOME}");   // Move to start of control

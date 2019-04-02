@@ -65,7 +65,7 @@ namespace WinAppDriver.Server.CommandHandlers
             // Normalize line endings to single line feed, as that's what the atom expects.
             //keysAsString = keysAsString.Replace("\r\n", "\n");
             //string result = this.EvaluateAtom(environment, WebDriverAtoms.Type, element, keysAsString, environment.CreateFrameObject());
-            automationElement.SetText(text?.ToString() ?? "");
+            automationElement.SetText(text?.ToString() ?? "", environment.SetTextDelay);
             return Response.CreateSuccessResponse();
         }
     }
