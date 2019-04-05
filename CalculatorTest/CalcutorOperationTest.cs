@@ -20,7 +20,7 @@ namespace CalculatorTest
         public CalcutorOperationTest()
         {
             serverProcess = StartServer();
-            calcProcess = StartCalculator();
+            //calcProcess = StartCalculator();
             session = StartSession();
         }
 
@@ -32,9 +32,9 @@ namespace CalculatorTest
             if (!serverProcess.HasExited)
                 serverProcess.Kill();
             calcProcess.Dispose();
-            if (!calcProcess.HasExited)
-                calcProcess.Kill();
-            session.Dispose();
+            //if (!calcProcess.HasExited)
+            //    calcProcess.Kill();
+            //session.Dispose();
         }
 
         private Process serverProcess;
@@ -80,8 +80,8 @@ namespace CalculatorTest
         {
             // set capabilities for calculator
             DesiredCapabilities appCapabilities = new DesiredCapabilities();
-            appCapabilities.SetCapability("processName", "calc");
-            appCapabilities.SetCapability("mode", "process");
+            appCapabilities.SetCapability("exePath", "calc.exe");
+            appCapabilities.SetCapability("mode", "executable");
             
             return new RemoteWebDriver(new Uri("http://127.0.0.1:12345"), appCapabilities);
         }
@@ -105,8 +105,8 @@ namespace CalculatorTest
             {
                 Thread.Sleep(50);
                 counter += 1;
-                if (counter > 20)
-                    throw new Exception("Calculator window doesn't appear more then 1 second.");
+                if (counter > 40)
+                    throw new Exception("Calculator window doesn't appear more then 2 second.");
             }
             return process;
         }
