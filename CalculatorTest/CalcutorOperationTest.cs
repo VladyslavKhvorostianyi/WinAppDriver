@@ -19,8 +19,8 @@ namespace CalculatorTest
         // startup server and connect to him before runing test
         public CalcutorOperationTest()
         {
-            //serverProcess = StartServer();
-            //calcProcess = StartCalculator();
+            serverProcess = StartServer();
+            calcProcess = StartCalculator();
             session = StartSession();
         }
 
@@ -29,12 +29,12 @@ namespace CalculatorTest
         ~CalcutorOperationTest()
         {
             serverProcess.Dispose();
-            //if (!serverProcess.HasExited)
-            //    serverProcess.Kill();
-            //calcProcess.Dispose();
-            //if (!calcProcess.HasExited)
-            //    calcProcess.Kill();
-            //session.Dispose();
+            if (!serverProcess.HasExited)
+                serverProcess.Kill();
+            calcProcess.Dispose();
+            if (!calcProcess.HasExited)
+                calcProcess.Kill();
+            session.Dispose();
         }
 
         private Process serverProcess;
