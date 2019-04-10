@@ -14,6 +14,7 @@ namespace CalculatorTest
         [TestMethod]
         public void TestMethod1()
         {
+
         }
 
         // startup server and connect to him before runing test
@@ -80,8 +81,8 @@ namespace CalculatorTest
         {
             // set capabilities for calculator
             DesiredCapabilities appCapabilities = new DesiredCapabilities();
-            appCapabilities.SetCapability("exePath", "calc.exe");
-            appCapabilities.SetCapability("mode", "executable");
+            appCapabilities.SetCapability("processName", "calc");
+            appCapabilities.SetCapability("mode", "attach");
             
             return new RemoteWebDriver(new Uri("http://127.0.0.1:12345"), appCapabilities);
         }
