@@ -13,8 +13,12 @@ namespace WinAppDriver
 {
     class ApplicationProcess
     {
-        public static Process StartProcessFromPath(string path, int timeout = 3000)
+        public static Process StartProcessFromPath(string path, int timeout = -1)
         {
+            if (timeout == -1)
+            {
+                timeout = Properties.Settings.Default.StartupTimeout;
+            }
 
             var process = Process.Start(path);
             process.WaitForInputIdle(timeout);

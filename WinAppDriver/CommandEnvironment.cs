@@ -62,7 +62,7 @@ namespace WinAppDriver.Server
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        private int implicitWaitTimeout = 60000;
+        private int implicitWaitTimeout = Properties.Settings.Default.ImplicitWaitTimeout;
         private int asyncScriptTimeout = -1;
         private int pageLoadTimeout = -1;
         private int setTextDelay = 100;

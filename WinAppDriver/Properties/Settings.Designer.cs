@@ -37,13 +37,13 @@ namespace WinAppDriver.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6000")]
-        public string ImplicitWait {
+        [global::System.Configuration.DefaultSettingValueAttribute("60000")]
+        public int ImplicitWaitTimeout {
             get {
-                return ((string)(this["ImplicitWait"]));
+                return ((int)(this["ImplicitWaitTimeout"]));
             }
             set {
-                this["ImplicitWait"] = value;
+                this["ImplicitWaitTimeout"] = value;
             }
         }
     }
